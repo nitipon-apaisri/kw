@@ -44,6 +44,12 @@ p {
 .card-zoom:hover .card-zoom-image {
     @apply scale-110;
 }
+.stats h1 {
+    font-family: "Oswald", sans-serif;
+}
+.stats p {
+    font-family: "Rubik", sans-serif;
+}
 footer h3 {
     font-family: "Oswald", sans-serif;
 }

@@ -36,22 +36,28 @@ export const news = [
         },
         publish: new Date(),
     },
-    {
-        _id: uuidv4(),
-        title: "Candy Shop Giveaway",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet massa eget est aliquet eleifend. Aenean volutpat eu odio at.",
-        media: {
-            image: { link: "https://media.discordapp.net/attachments/945735107078156318/999546298267078696/KAMWOO_PARAS_2-12.jpg?width=1232&height=1232", alt: "collab ga" },
-        },
-        publish: new Date(),
-    },
-    {
-        _id: uuidv4(),
-        title: "Sticker Vol.2",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet massa eget est aliquet eleifend. Aenean volutpat eu odio at.",
-        media: {
-            image: { link: "https://media.discordapp.net/attachments/945735107078156318/991712945211977778/IMG_2630.jpg?width=1232&height=1232", alt: "collab ga" },
-        },
-        publish: new Date(),
-    },
+    // {
+    //     _id: uuidv4(),
+    //     title: "Candy Shop Giveaway",
+    //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet massa eget est aliquet eleifend. Aenean volutpat eu odio at.",
+    //     media: {
+    //         image: { link: "https://media.discordapp.net/attachments/945735107078156318/999546298267078696/KAMWOO_PARAS_2-12.jpg?width=1232&height=1232", alt: "collab ga" },
+    //     },
+    //     publish: new Date(),
+    // },
+    // {
+    //     _id: uuidv4(),
+    //     title: "Sticker Vol.2",
+    //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet massa eget est aliquet eleifend. Aenean volutpat eu odio at.",
+    //     media: {
+    //         image: { link: "https://media.discordapp.net/attachments/945735107078156318/991712945211977778/IMG_2630.jpg?width=1232&height=1232", alt: "collab ga" },
+    //     },
+    //     publish: new Date(),
+    // },
+];
+
+export const kwStats = [
+    { _id: uuidv4(), title: "Marketplace", value: 3 },
+    { _id: uuidv4(), title: "Total Sold NFT", value: 200 },
+    { _id: uuidv4(), title: "Twitter Followers", value: 5011 },
 ];

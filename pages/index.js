@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Card from "../components/Card";
 import Hero from "../components/Hero";
+import Stats from "../components/Stats";
 import { news } from "../db";
 export default function Home() {
     return (
@@ -12,16 +13,19 @@ export default function Home() {
             </Head>
             <div className="wrapper">
                 <Hero />
-                <hr className="w-1/2 mx-auto mt-10" style={{ borderColor: "rgb(226 232 240)" }} />
-                <div className="mt-20">
+                <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
+                <div>
                     <h1 className="text-3xl font-sans font-bold tracking-wider">News</h1>
-                    <div className="grid gap-10 grid-cols-4 grid-rows-2 mt-6 ">
+                    <div className="grid gap-10 grid-cols-4 mt-6 ">
                         {news.map((r, i) => (
                             <Card values={r} key={r._id} />
                         ))}
                     </div>
                 </div>
-                <hr className="w-1/2 mx-auto mt-10" style={{ borderColor: "rgb(226 232 240)" }} />
+
+                <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
+                <Stats />
+                <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
             </div>
         </div>
     );
