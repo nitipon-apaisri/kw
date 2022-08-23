@@ -6,22 +6,22 @@ const Layout = ({ children }) => {
                     <div className="w-10 h-10 bg-pink rounded-lg"></div>
                     <ul className="flex items-center ml-20">
                         <li className="mr-6 h-fit">
-                            <a className="text-black" href="#">
+                            <a className="text-black hover:text-black transition" href="#">
                                 Home
                             </a>
                         </li>
                         <li className="mr-6 h-fit">
-                            <a className="text-gray" href="#">
+                            <a className="text-gray hover:text-black transition " href="#">
                                 Collections
                             </a>
                         </li>
                         <li className="mr-6 h-fit">
-                            <a className="text-gray" href="#">
+                            <a className="text-gray hover:text-black transition" href="#">
                                 Events
                             </a>
                         </li>
                         <li className="mr-6 h-fit">
-                            <a className="text-gray" href="#">
+                            <a className="text-gray hover:text-black transition" href="#">
                                 Follow
                             </a>
                         </li>

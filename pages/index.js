@@ -14,7 +14,7 @@ export default function Home() {
                 <Hero />
                 <div className="mt-20">
                     <h1 className="text-3xl font-sans font-bold tracking-wider">News</h1>
-                    <div className="grid gap-10 grid-cols-3 grid-rows-2 mt-6 ">
+                    <div className="grid gap-10 grid-cols-4 grid-rows-2 mt-6 ">
                         {news.map((r, i) => (
                             <Card values={r} key={r._id} />
                         ))}
