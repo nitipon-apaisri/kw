@@ -12,6 +12,7 @@ export default function Home() {
             </Head>
             <div className="wrapper">
                 <Hero />
+                <hr className="w-1/2 mx-auto mt-10" style={{ borderColor: "rgb(226 232 240)" }} />
                 <div className="mt-20">
                     <h1 className="text-3xl font-sans font-bold tracking-wider">News</h1>
                     <div className="grid gap-10 grid-cols-4 grid-rows-2 mt-6 ">
@@ -20,6 +21,7 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
+                <hr className="w-1/2 mx-auto mt-10" style={{ borderColor: "rgb(226 232 240)" }} />
             </div>
         </div>
     );
