@@ -12,7 +12,9 @@ nav ul li {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: bold;
 }
-
+nav ul li a:hover {
+    @apply hover:text-black transition-all duration-300;
+}
 a {
     color: inherit;
     text-decoration: none;
