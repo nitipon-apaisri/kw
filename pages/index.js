@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import Hero from "../components/Hero";
 import Stats from "../components/Stats";
 import { news } from "../db";
+
 export default function Home() {
     return (
         <div className="landing-page">
