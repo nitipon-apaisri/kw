@@ -19,15 +19,15 @@ export default function Home() {
                     <h1 className="text-3xl font-sans font-bold tracking-wider">News</h1>
                     <div className="grid gap-8 grid-cols-4 mt-6 ">
                         {news.map((r, i) => (
-                            <>
+                            <div key={r._id}>
                                 <div>
-                                    <Card values={r} key={r._id} />
+                                    <Card values={r} />
                                     <div className="px-6 ">
                                         <h3 className="text-md font-medium tracking-wider">{r.title}</h3>
                                         <p className="text-xs font-normal text-gray tracking-wide mt-1">{r.description}</p>
                                     </div>
                                 </div>
-                            </>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -39,15 +39,15 @@ export default function Home() {
                     <h1 className="text-3xl font-sans font-bold tracking-wider">New Releases</h1>
                     <div className="grid gap-8 grid-cols-4 mt-6 ">
                         {newRelease.map((r, i) => (
-                            <>
+                            <div key={r._id}>
                                 <div>
-                                    <Card values={r} key={r._id} />
+                                    <Card values={r} />
                                     <div className="px-6 text-center">
                                         <h3 className="text-md font-medium tracking-wider">{r.title}</h3>
                                         <p className="text-xs font-normal text-gray tracking-wide mt-1">{r.collection}</p>
                                     </div>
                                 </div>
-                            </>
+                            </div>
                         ))}
                     </div>
                 </div>

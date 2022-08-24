@@ -35,13 +35,13 @@ p {
     font-family: "Roboto", sans-serif;
 }
 .card-zoom {
-    @apply relative flex items-center justify-center my-3 mx-auto transition-all duration-300 overflow-hidden shadow-xl aspect-square rounded-3xl;
+    @apply relative flex items-center justify-center my-3 mx-auto transition-all duration-300 overflow-hidden shadow-xl shadow-light_gray aspect-square rounded-3xl;
 }
 .card-zoom-image {
     @apply absolute w-full h-full transition-all duration-500 ease-in-out transform bg-center bg-cover rounded-3xl;
 }
 .card-zoom:hover {
-    @apply shadow-2xl;
+    @apply shadow-2xl shadow-gray;
 }
 .card-zoom:hover .card-zoom-image {
     @apply scale-110;

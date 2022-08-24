@@ -84,7 +84,44 @@ export const newRelease = [
         publish: new Date(),
     },
 ];
-
+export const collections = [
+    {
+        _id: uuidv4(),
+        title: "It's fine.",
+        market: "Paras Marketplace",
+        media: {
+            profile: "https://paras-cdn.imgix.net/bafybeig4ywtsayoghfdk2s3cb76gcjhkywv5akgqk75bfz2jnuhrkuigry",
+            cover: "",
+        },
+    },
+    {
+        _id: uuidv4(),
+        title: "Event By KW",
+        market: "Paras Marketplace",
+        media: {
+            profile: "https://paras-cdn.imgix.net/bafybeicswhy26vsmxpmjp5rgdcpgjomw2pctbs4ewptv5lbyr66hswzmz4",
+            cover: "",
+        },
+    },
+    {
+        _id: uuidv4(),
+        title: "Candy Shop",
+        market: "Paras Marketplace",
+        media: {
+            profile: "https://paras-cdn.imgix.net/bafybeidj3kwac2ssqfkpzqc4ewkhadgx5low6fxmsyrbn27qtrgjcbaf7y",
+            cover: "",
+        },
+    },
+    {
+        _id: uuidv4(),
+        title: "Kamwoo's Partnerships",
+        market: "Paras Marketplace",
+        media: {
+            profile: "https://paras-cdn.imgix.net/bafybeieb4gjpk3nv62w67n57pk5bite4rvug5sq4qql725duabtucttqou",
+            cover: "",
+        },
+    },
+];
 export const kwStats = [
     { _id: uuidv4(), title: "Marketplace", value: 3 },
     { _id: uuidv4(), title: "Total Sold NFT", value: 200 },

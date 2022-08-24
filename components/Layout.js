@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import logo from "../assets/images/kw-logo.png";
 const Layout = ({ children }) => {
     const router = useRouter();
     return (
         <div className="flex flex-col min-h-screen">
             <nav>
                 <div className="flex max-w-7xl m-auto py-10 px-10">
-                    <div className="w-10 h-10 bg-pink rounded-lg"></div>
+                    <div className="w-10 h-10 bg-center bg-cover rounded-lg" style={{ backgroundImage: `url(${logo.src})` }}></div>
                     <ul className="flex items-center ml-20">
                         <li className="mr-6 h-fit">
                             <Link href="/">
