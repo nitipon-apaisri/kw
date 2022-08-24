@@ -2,7 +2,7 @@ import Head from "next/head";
 import Card from "../components/Card";
 import Hero from "../components/Hero";
 import Stats from "../components/Stats";
-import { news } from "../db";
+import { newRelease, news } from "../db";
 
 export default function Home() {
     return (
@@ -19,7 +19,15 @@ export default function Home() {
                     <h1 className="text-3xl font-sans font-bold tracking-wider">News</h1>
                     <div className="grid gap-8 grid-cols-4 mt-6 ">
                         {news.map((r, i) => (
-                            <Card values={r} key={r._id} />
+                            <>
+                                <div>
+                                    <Card values={r} key={r._id} />
+                                    <div className="px-6 ">
+                                        <h3 className="text-md font-medium tracking-wider">{r.title}</h3>
+                                        <p className="text-xs font-normal text-gray tracking-wide mt-1">{r.description}</p>
+                                    </div>
+                                </div>
+                            </>
                         ))}
                     </div>
                 </div>
@@ -27,6 +35,22 @@ export default function Home() {
                 <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
                 <Stats />
                 <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
+                <div>
+                    <h1 className="text-3xl font-sans font-bold tracking-wider">New Releases</h1>
+                    <div className="grid gap-8 grid-cols-4 mt-6 ">
+                        {newRelease.map((r, i) => (
+                            <>
+                                <div>
+                                    <Card values={r} key={r._id} />
+                                    <div className="px-6 text-center">
+                                        <h3 className="text-md font-medium tracking-wider">{r.title}</h3>
+                                        <p className="text-xs font-normal text-gray tracking-wide mt-1">{r.collection}</p>
+                                    </div>
+                                </div>
+                            </>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );

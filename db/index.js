@@ -36,24 +36,53 @@ export const news = [
         },
         publish: new Date(),
     },
-    // {
-    //     _id: uuidv4(),
-    //     title: "Candy Shop Giveaway",
-    //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet massa eget est aliquet eleifend. Aenean volutpat eu odio at.",
-    //     media: {
-    //         image: { link: "https://media.discordapp.net/attachments/945735107078156318/999546298267078696/KAMWOO_PARAS_2-12.jpg?width=1232&height=1232", alt: "collab ga" },
-    //     },
-    //     publish: new Date(),
-    // },
-    // {
-    //     _id: uuidv4(),
-    //     title: "Sticker Vol.2",
-    //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet massa eget est aliquet eleifend. Aenean volutpat eu odio at.",
-    //     media: {
-    //         image: { link: "https://media.discordapp.net/attachments/945735107078156318/991712945211977778/IMG_2630.jpg?width=1232&height=1232", alt: "collab ga" },
-    //     },
-    //     publish: new Date(),
-    // },
+];
+
+export const newRelease = [
+    {
+        _id: uuidv4(),
+        title: "Candy Shop - Karishma",
+        collection: "Candy Shop",
+        media: {
+            image: {
+                link: "https://paras-cdn.imgix.net/bafybeigzmrilmdkhq7co3sknojgazzzstefzst6xyajvqbwittscu5ux6u",
+            },
+        },
+        publish: new Date(),
+    },
+    {
+        _id: uuidv4(),
+        title: "KW - Parphapha",
+        collection: "Event By KW",
+        media: {
+            image: {
+                link: "https://paras-cdn.imgix.net/bafybeidlyvc6kt4ume3puywlnbyj2shprylhrihqs4pqfckei73x7dyk7i",
+            },
+        },
+        publish: new Date(),
+    },
+    {
+        _id: uuidv4(),
+        title: "#OK200",
+        collection: "it's fine.",
+        media: {
+            image: {
+                link: "https://paras-cdn.imgix.net/bafybeigkysyophaodvs3cinlt7m4c3efc4ng42s7owkrv5lhpf75yckizq",
+            },
+        },
+        publish: new Date(),
+    },
+    {
+        _id: uuidv4(),
+        title: "Candy Shop - Candy",
+        collection: "Candy Shop",
+        media: {
+            image: {
+                link: "https://paras-cdn.imgix.net/bafybeigi7kgk44ozpn326kgjk4f2e5jwctzfnxktvz55fncafjffzicolq",
+            },
+        },
+        publish: new Date(),
+    },
 ];
 
 export const kwStats = [
