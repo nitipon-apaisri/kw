@@ -16,7 +16,7 @@ export default function Home() {
                 <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
                 <div>
                     <h1 className="text-3xl font-sans font-bold tracking-wider">News</h1>
-                    <div className="grid gap-10 grid-cols-4 mt-6 ">
+                    <div className="grid gap-8 grid-cols-4 mt-6 ">
                         {news.map((r, i) => (
                             <Card values={r} key={r._id} />
                         ))}
