@@ -1,8 +1,21 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import CollectionCard from "../components/CollectionCard";
 import Hero from "../components/Hero";
 import { collections } from "../db";
 const Collections = () => {
+    const [isLoading, setLoading] = useState(false);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(true);
+        }, 1500);
+    }, []);
+    if (!isLoading)
+        return (
+            <div className="relative flex items-stretch justify-center">
+                <span className="loader "></span>
+            </div>
+        );
     return (
         <div className="collections">
             <Head>

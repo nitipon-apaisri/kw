@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
                     </ul>
                 </div>
             </nav>
-            <main className="w-full max-w-7xl flex-grow m-auto px-10">{children}</main>
+            <main className="w-full max-w-7xl  m-auto px-10">{children}</main>
             <footer className=" p-4 text-center mt-10 bg-pink">
                 <h3 className="font-medium font-display text-white">© 2022</h3>
             </footer>
