@@ -7,7 +7,7 @@ const Stats = () => {
     useEffect(() => {
         axios
             .get("https://cryptic-sea-01365.herokuapp.com/https://api.twitter.com/2/users/by/username/KAMWOO4?user.fields=public_metrics", {
-                headers: { Authorization: "Bearer AAAAAAAAAAAAAAAAAAAAANkdgQEAAAAAfC30bX0uIThiYXnKM3COw5%2BN34c%3DQLH22ifiKR1qUlMDaeeUbIuI9CZSYAkIkNJpBMbA5EGicv8pj1" },
+                headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}` },
             })
             .then((res) => setTwitterFollower(res.data.data.public_metrics.followers_count))
             .catch((err) => {
