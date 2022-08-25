@@ -125,5 +125,4 @@ export const collections = [
 export const kwStats = [
     { _id: uuidv4(), title: "Marketplace", value: 3 },
     { _id: uuidv4(), title: "Total Sold NFT", value: 200 },
-    { _id: uuidv4(), title: "Twitter Followers", value: 5011 },
 ];
