@@ -1,14 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { twitterApi } from "../api";
 import { kwStats } from "../db";
 
 const Stats = () => {
     const [twitterFollower, setTwitterFollower] = useState(0);
     useEffect(() => {
-        axios
-            .get("https://cryptic-sea-01365.herokuapp.com/https://api.twitter.com/2/users/by/username/KAMWOO4?user.fields=public_metrics", {
-                headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}` },
-            })
+        twitterApi
+            .get("KAMWOO4?user.fields=public_metrics")
             .then((res) => setTwitterFollower(res.data.data.public_metrics.followers_count))
             .catch((err) => {
                 console.log(err);
