@@ -38,52 +38,6 @@ export const news = [
     },
 ];
 
-export const newRelease = [
-    {
-        _id: uuidv4(),
-        title: "Candy Shop - Karishma",
-        collection: "Candy Shop",
-        media: {
-            image: {
-                link: "https://paras-cdn.imgix.net/bafybeigzmrilmdkhq7co3sknojgazzzstefzst6xyajvqbwittscu5ux6u",
-            },
-        },
-        publish: new Date(),
-    },
-    {
-        _id: uuidv4(),
-        title: "KW - Parphapha",
-        collection: "Event By KW",
-        media: {
-            image: {
-                link: "https://paras-cdn.imgix.net/bafybeidlyvc6kt4ume3puywlnbyj2shprylhrihqs4pqfckei73x7dyk7i",
-            },
-        },
-        publish: new Date(),
-    },
-    {
-        _id: uuidv4(),
-        title: "#OK200",
-        collection: "it's fine.",
-        media: {
-            image: {
-                link: "https://paras-cdn.imgix.net/bafybeigkysyophaodvs3cinlt7m4c3efc4ng42s7owkrv5lhpf75yckizq",
-            },
-        },
-        publish: new Date(),
-    },
-    {
-        _id: uuidv4(),
-        title: "Candy Shop - Candy",
-        collection: "Candy Shop",
-        media: {
-            image: {
-                link: "https://paras-cdn.imgix.net/bafybeigi7kgk44ozpn326kgjk4f2e5jwctzfnxktvz55fncafjffzicolq",
-            },
-        },
-        publish: new Date(),
-    },
-];
 export const collections = [
     {
         _id: uuidv4(),

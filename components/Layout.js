@@ -15,18 +15,13 @@ const Layout = ({ children }) => {
                             </Link>
                         </li>
                         <li className="mr-6 h-fit">
-                            <Link href="/events">
-                                <a className={router.pathname === "/events" ? "text-black hover:text-black transition" : "text-gray"}>Events</a>
-                            </Link>
-                        </li>
-                        <li className="mr-6 h-fit">
                             <Link href="/collections">
                                 <a className={router.pathname === "/collections" ? "text-black hover:text-black transition" : "text-gray"}>Collections</a>
                             </Link>
                         </li>
                         <li className="mr-6 h-fit">
-                            <Link href="/follow">
-                                <a className={router.pathname === "/follow" ? "text-black hover:text-black transition" : "text-gray"}>Follow</a>
+                            <Link href="/events">
+                                <a className={router.pathname === "/events" ? "text-black hover:text-black transition" : "text-gray"}>Events</a>
                             </Link>
                         </li>
                     </ul>

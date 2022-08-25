@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { twitterApi } from "../api";
 import { kwStats } from "../db";

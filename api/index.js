@@ -6,3 +6,7 @@ export const twitterApi = axios.create({
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}`,
     },
 });
+
+export const parasApi = axios.create({
+    baseURL: `https://api-v2-mainnet.paras.id/`,
+});
