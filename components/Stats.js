@@ -17,12 +17,12 @@ const Stats = () => {
             <div className="w-2/3 flex justify-evenly">
                 {kwStats.map((r, i) => (
                     <div className="stats text-center text-white " key={r._id}>
-                        <h1 className="text-6xl">{r.value}</h1>
+                        <h1 className="text-6xl font-semibold">{r.value}</h1>
                         <p className="m-2 text-sm tracking-wide">{r.title}</p>
                     </div>
                 ))}
                 <div className="stats text-center text-white ">
-                    <h1 className="text-6xl">{twitterFollower}</h1>
+                    <h1 className="text-6xl font-semibold">{twitterFollower}</h1>
                     <p className="m-2 text-sm tracking-wide">Twitter Followers</p>
                 </div>
             </div>

@@ -37,8 +37,11 @@ export default function Home() {
                                 <div>
                                     <Card media={r.media.image.link} />
                                     <div className="px-6 ">
-                                        <h3 className="text-md font-medium tracking-wider">{r.title}</h3>
-                                        <p className="text-xs font-normal text-gray tracking-wide mt-1">{r.description}</p>
+                                        <h3 className="text-md font-semibold tracking-wider">{r.title}</h3>
+                                        <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.description}</p>
+                                        <p className="text-xs font-normal italic text-gray tracking-wide mt-2">{`Published: ${r.publish.getDate()}/${
+                                            r.publish.getMonth() + 1
+                                        }/${r.publish.getFullYear()}`}</p>
                                     </div>
                                 </div>
                             </div>
@@ -56,8 +59,8 @@ export default function Home() {
                                 <div>
                                     <Card media={`https://paras-cdn.imgix.net/${r.metadata.media}`} />
                                     <div className="px-6 text-center">
-                                        <h3 className="text-md font-medium tracking-wider">{r.metadata.title.replace("#1", "")}</h3>
-                                        <p className="text-xs font-normal text-gray tracking-wide mt-1">{r.metadata.collection}</p>
+                                        <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace("#1", "")}</h3>
+                                        <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.metadata.collection}</p>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +68,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            ;
         </div>
     );
 }

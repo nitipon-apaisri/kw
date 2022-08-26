@@ -41,38 +41,18 @@ export const news = [
 export const collections = [
     {
         _id: uuidv4(),
-        title: "It's fine.",
-        market: "Paras Marketplace",
+        title: "Paras Marketplace",
         media: {
-            profile: "https://paras-cdn.imgix.net/bafybeig4ywtsayoghfdk2s3cb76gcjhkywv5akgqk75bfz2jnuhrkuigry",
-            cover: "",
+            profile: "https://cdn.discordapp.com/attachments/988543164082167898/1012820529218072637/Group_153.png",
+            cover: "https://cdn.discordapp.com/attachments/988543164082167898/1012820047368028190/paras-cover.png",
         },
     },
     {
         _id: uuidv4(),
-        title: "Event By KW",
-        market: "Paras Marketplace",
+        title: "OpenSea",
         media: {
-            profile: "https://paras-cdn.imgix.net/bafybeicswhy26vsmxpmjp5rgdcpgjomw2pctbs4ewptv5lbyr66hswzmz4",
-            cover: "",
-        },
-    },
-    {
-        _id: uuidv4(),
-        title: "Candy Shop",
-        market: "Paras Marketplace",
-        media: {
-            profile: "https://paras-cdn.imgix.net/bafybeidj3kwac2ssqfkpzqc4ewkhadgx5low6fxmsyrbn27qtrgjcbaf7y",
-            cover: "",
-        },
-    },
-    {
-        _id: uuidv4(),
-        title: "Kamwoo's Partnerships",
-        market: "Paras Marketplace",
-        media: {
-            profile: "https://paras-cdn.imgix.net/bafybeieb4gjpk3nv62w67n57pk5bite4rvug5sq4qql725duabtucttqou",
-            cover: "",
+            profile: "https://cdn.discordapp.com/attachments/988543164082167898/1012814961879289888/op-profile.png",
+            cover: "https://cdn.discordapp.com/attachments/988543164082167898/1012813207183818802/op-cover.png",
         },
     },
 ];
