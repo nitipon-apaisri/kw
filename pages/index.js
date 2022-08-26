@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { parasApi } from "../api";
 import Card from "../components/Card";
 import Hero from "../components/Hero";
+import Loader from "../components/Loader";
 import Stats from "../components/Stats";
 import { news } from "../db";
 
@@ -10,17 +11,14 @@ export default function Home() {
     const [newRelease, setNewRelease] = useState([]);
     const [isLoading, setLoading] = useState(false);
     useEffect(() => {
-        parasApi
-            .get("token?__limit=4&creator_id=kamwoo.near")
-            .then((r) => setNewRelease((token) => [...token, r.data.data.results]))
-            .catch((err) => console.log(err));
+        setTimeout(() => {
+            parasApi
+                .get("token?__limit=4&creator_id=kamwoo.near")
+                .then((r) => setNewRelease((token) => [...token, r.data.data.results]))
+                .catch((err) => console.log(err));
+        }, 1000);
     }, []);
-    if (newRelease.length === 0)
-        return (
-            <div className="relative flex items-stretch justify-center">
-                <span className="loader "></span>
-            </div>
-        );
+    if (newRelease.length === 0) return <Loader />;
     return (
         <div className="landing-page">
             <Head>
@@ -67,6 +65,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            ;
         </div>
     );
 }

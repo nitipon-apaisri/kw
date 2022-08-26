@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CollectionCard from "../components/CollectionCard";
 import Hero from "../components/Hero";
 import { collections } from "../db";
+import Loader from "../components/Loader";
 const Collections = () => {
     const [isLoading, setLoading] = useState(false);
     useEffect(() => {
@@ -10,12 +11,7 @@ const Collections = () => {
             setLoading(true);
         }, 1500);
     }, []);
-    if (!isLoading)
-        return (
-            <div className="relative flex items-stretch justify-center">
-                <span className="loader "></span>
-            </div>
-        );
+    if (!isLoading) return <Loader />;
     return (
         <div className="collections">
             <Head>
