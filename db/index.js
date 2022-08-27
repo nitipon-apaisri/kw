@@ -42,6 +42,7 @@ export const collections = [
     {
         _id: uuidv4(),
         title: "Paras Marketplace",
+        slug: "paras",
         media: {
             profile: "https://cdn.discordapp.com/attachments/988543164082167898/1012820529218072637/Group_153.png",
             cover: "https://cdn.discordapp.com/attachments/988543164082167898/1012820047368028190/paras-cover.png",
@@ -50,6 +51,7 @@ export const collections = [
     {
         _id: uuidv4(),
         title: "OpenSea",
+        slug: "opensea",
         media: {
             profile: "https://cdn.discordapp.com/attachments/988543164082167898/1012814961879289888/op-profile.png",
             cover: "https://cdn.discordapp.com/attachments/988543164082167898/1012813207183818802/op-cover.png",
