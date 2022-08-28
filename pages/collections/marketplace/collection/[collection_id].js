@@ -9,6 +9,7 @@ import Card from "../../../../components/Card";
 const Collection = () => {
     const router = useRouter();
     const [tokens, setTokens] = useState([]);
+    const [hasMore, setHasMore] = useState(true);
     const { collection_id } = router.query;
     useEffect(() => {
         setTimeout(() => {
@@ -16,7 +17,13 @@ const Collection = () => {
                 .get(`token?__limit=8&creator_id=kamwoo.near&collection_id=${collection_id}`)
                 .then((r) =>
                     r.data.data.results.forEach((token) => {
-                        if (token.edition_id === "1") setTokens((uniqueToken) => [...uniqueToken, token]);
+                        if (token.edition_id !== "1") {
+                            parasApi
+                                .get(`token/${token.contract_id}::${token.token_series_id}/${token.token_series_id}:1`)
+                                .then((signle) => setTokens((singleToken) => [...singleToken, signle.data]))
+                                .catch((err) => console.log(err));
+                        }
+                        setTokens((uniqueToken) => [...uniqueToken, token]);
                     })
                 )
                 .catch((err) => console.log(err));
@@ -26,11 +33,18 @@ const Collection = () => {
     const fetchMoreData = () => {
         parasApi
             .get(`token?__skip=${tokens.length}&__limit=8&creator_id=kamwoo.near&collection_id=${collection_id}`)
-            .then((r) =>
+            .then((r) => {
+                if (r.data.data.results.length === 0) setHasMore(false);
                 r.data.data.results.forEach((token) => {
-                    if (token.edition_id === "1") setTokens((uniqueToken) => [...uniqueToken, token]);
-                })
-            )
+                    if (token.edition_id !== "1") {
+                        parasApi
+                            .get(`token/${token.contract_id}::${token.token_series_id}/${token.token_series_id}:1`)
+                            .then((signle) => setTokens((singleToken) => [...singleToken, signle.data]))
+                            .catch((err) => console.log(err));
+                    }
+                    setTokens((uniqueToken) => [...uniqueToken, token]);
+                });
+            })
             .catch((err) => console.log(err));
     };
     return (
@@ -43,19 +57,20 @@ const Collection = () => {
             <h1 className="text-3xl font-bold tracking-wider">{collection_id.replaceAll("-", " ").replace("by kamwoonear", "").toUpperCase()}</h1>
             <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
             <div className="wrapper">
-                <InfiniteScroll dataLength={tokens.length} next={fetchMoreData} hasMore={true} loader={<Loader />}>
+                <InfiniteScroll dataLength={tokens.length} next={fetchMoreData} hasMore={hasMore} loader={<Loader />}>
                     <div className="grid gap-8 grid-cols-4 mt-6">
                         {tokens
-                            .sort((a, b) => (a.metadata.title < b.metadata.title ? 1 : -1))
+                            .sort((a, b) => (a.token_series_id < b.token_series_id ? 1 : -1))
                             //filter to find unique token by token title ref: https://stackoverflow.com/a/56757215
                             //v,i,a = value, index, array
+                            .filter((v, i, a) => a.findIndex((v2) => v2.token_series_id === v.token_series_id) === i)
                             .filter((v, i, a) => a.findIndex((v2) => v2.metadata.title === v.metadata.title) === i)
                             .map((r, i) => (
                                 <div key={r._id}>
                                     <div>
-                                        <Card media={`https://paras-cdn.imgix.net/${r.metadata.media}`} mimeType={r.metadata.mime_type} />
+                                        <Card media={`https://paras-cdn.imgix.net/${r.metadata.media.replace("https://ipfs.fleek.co/ipfs/", "")}`} mimeType={r.metadata.mime_type} />
                                         <div className="px-6 text-center">
-                                            <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace("#1", "")}</h3>
+                                            <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace(`#${r.edition_id}`, "")}</h3>
                                         </div>
                                     </div>
                                 </div>
