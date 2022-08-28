@@ -42,7 +42,7 @@ const Collection = () => {
                         {collections[0]
                             .sort((a, b) => (a.createdAt < b.createdAt ? -1 : 1))
                             .map((r, i) => (
-                                <Link href={`/collections/marketplace/collection/${r.collection_id}`} key={r._id}>
+                                <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
                                     <a>
                                         <CollectionCard media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
                                     </a>
