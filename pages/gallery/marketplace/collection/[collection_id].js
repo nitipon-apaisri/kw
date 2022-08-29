@@ -29,7 +29,6 @@ const Collection = () => {
             .get(`token-series?__skip=${tokens.length}&__limit=8&collection_id=${collection_id}`)
             .then((r) => {
                 if (r.data.data.results.length === 0) setHasMore(false);
-                console.log(r.data.data.results);
                 r.data.data.results.forEach((token) => {
                     setTokens((uniqueToken) => [...uniqueToken, token]);
                 });
