@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
                         </li>
                         <li className="mr-6 h-fit">
                             <Link href="/events">
-                                <a className={router.pathname.includes("events") ? "text-black hover:text-black transition" : "text-gray"}>Events</a>
+                                <a className={router.pathname.includes("what-the") ? "text-black hover:text-black transition" : "text-gray"}>What the...</a>
                             </Link>
                         </li>
                     </ul>

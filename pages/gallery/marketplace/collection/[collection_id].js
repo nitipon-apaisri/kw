@@ -14,15 +14,9 @@ const Collection = () => {
     useEffect(() => {
         setTimeout(() => {
             parasApi
-                .get(`token?__limit=8&creator_id=kamwoo.near&collection_id=${collection_id}`)
+                .get(`token-series?__skip=0&__limit=8&collection_id=${collection_id}`)
                 .then((r) =>
                     r.data.data.results.forEach((token) => {
-                        if (token.edition_id !== "1") {
-                            parasApi
-                                .get(`token/${token.contract_id}::${token.token_series_id}/${token.token_series_id}:1`)
-                                .then((signle) => setTokens((singleToken) => [...singleToken, signle.data]))
-                                .catch((err) => console.log(err));
-                        }
                         setTokens((uniqueToken) => [...uniqueToken, token]);
                     })
                 )
@@ -32,16 +26,11 @@ const Collection = () => {
     if (tokens.length === 0) return <Loader />;
     const fetchMoreData = () => {
         parasApi
-            .get(`token?__skip=${tokens.length}&__limit=8&creator_id=kamwoo.near&collection_id=${collection_id}`)
+            .get(`token-series?__skip=${tokens.length}&__limit=8&collection_id=${collection_id}`)
             .then((r) => {
                 if (r.data.data.results.length === 0) setHasMore(false);
+                console.log(r.data.data.results);
                 r.data.data.results.forEach((token) => {
-                    if (token.edition_id !== "1") {
-                        parasApi
-                            .get(`token/${token.contract_id}::${token.token_series_id}/${token.token_series_id}:1`)
-                            .then((signle) => setTokens((singleToken) => [...singleToken, signle.data]))
-                            .catch((err) => console.log(err));
-                    }
                     setTokens((uniqueToken) => [...uniqueToken, token]);
                 });
             })
@@ -57,7 +46,7 @@ const Collection = () => {
             <h1 className="text-3xl font-bold tracking-wider">{collection_id.replaceAll("-", " ").replace("by kamwoonear", "").toUpperCase()}</h1>
             <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
             <div className="wrapper">
-                <InfiniteScroll dataLength={tokens.length} next={fetchMoreData} hasMore={hasMore} loader={<Loader />}>
+                <InfiniteScroll dataLength={tokens.length - 8} next={fetchMoreData} hasMore={hasMore} loader={<Loader />}>
                     <div className="grid gap-8 grid-cols-4 mt-6">
                         {tokens
                             .sort((a, b) => (a.token_series_id < b.token_series_id ? 1 : -1))
