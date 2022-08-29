@@ -51,7 +51,6 @@ const Collection = () => {
                             .sort((a, b) => (a.token_series_id < b.token_series_id ? 1 : -1))
                             //filter to find unique token by token title ref: https://stackoverflow.com/a/56757215
                             //v,i,a = value, index, array
-                            .filter((v, i, a) => a.findIndex((v2) => v2.token_series_id === v.token_series_id) === i)
                             .filter((v, i, a) => a.findIndex((v2) => v2.metadata.title === v.metadata.title) === i)
                             .map((r, i) => (
                                 <div key={r._id}>
