@@ -26,7 +26,7 @@ const Collection = () => {
     if (tokens.length === 0) return <Loader />;
     const fetchMoreData = () => {
         parasApi
-            .get(`token-series?__skip=${tokens.length}&__limit=8&collection_id=${collection_id}`)
+            .get(`token-series?__skip=${tokens.length - 8}&__limit=8&collection_id=${collection_id}`)
             .then((r) => {
                 if (r.data.data.results.length === 0) setHasMore(false);
                 r.data.data.results.forEach((token) => {
@@ -45,7 +45,7 @@ const Collection = () => {
             <h1 className="text-3xl font-bold tracking-wider">{collection_id.replaceAll("-", " ").replace("by kamwoonear", "").toUpperCase()}</h1>
             <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
             <div className="wrapper">
-                <InfiniteScroll dataLength={tokens.length - 8} next={fetchMoreData} hasMore={hasMore} loader={<Loader />}>
+                <InfiniteScroll dataLength={tokens.length} next={fetchMoreData} hasMore={hasMore} loader={<Loader />}>
                     <div className="grid gap-8 grid-cols-4 mt-6">
                         {tokens
                             .sort((a, b) => (a.token_series_id < b.token_series_id ? 1 : -1))
