@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
             <nav>
                 <div className="flex max-w-7xl m-auto py-8 px-10 xs:justify-between xs:items-center">
                     <div className="w-10 h-10 bg-center bg-cover rounded-lg" style={{ backgroundImage: `url(${logo.src})` }}></div>
-                    <FontAwesomeIcon icon={isToggle ? faXmark : faBars} size="2x" onClick={toggleMenu} className={toggleMenu ? "block " : "hidden "} />
+                    <FontAwesomeIcon icon={isToggle ? faXmark : faBars} size="2x" onClick={toggleMenu} className={toggleMenu ? "hidden xs:block" : "hidden"} />
                     <ul className={"flex items-center ml-20 xs:hidden"}>
                         <li className="mr-6 h-fit">
                             <Link href="/">
