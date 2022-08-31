@@ -38,17 +38,55 @@ const Collection = () => {
                 <div>
                     <h1 className="text-3xl font-bold tracking-wider">Collections</h1>
                     <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
-                    <div className="grid gap-8 grid-cols-3 mt-6 ">
-                        {collections[0]
-                            .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
-                            .map((r, i) => (
-                                <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
-                                    <a>
-                                        <CollectionCard media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
-                                    </a>
-                                </Link>
-                            ))}
-                    </div>
+                    <>
+                        {(() => {
+                            if (collections[0].length === 1) {
+                                return (
+                                    <div className="block w-96 mt-6 ">
+                                        {collections[0]
+                                            .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+                                            .map((r, i) => (
+                                                <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
+                                                    <a>
+                                                        <CollectionCard media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
+                                                    </a>
+                                                </Link>
+                                            ))}
+                                    </div>
+                                );
+                            }
+                            if (collections[0].length === 2) {
+                                return (
+                                    <div className="grid gap-8 grid-cols-2 mt-6 ">
+                                        {collections[0]
+                                            .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+                                            .map((r, i) => (
+                                                <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
+                                                    <a>
+                                                        <CollectionCard media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
+                                                    </a>
+                                                </Link>
+                                            ))}
+                                    </div>
+                                );
+                            }
+                            if (collections[0].length >= 3) {
+                                return (
+                                    <div className="grid gap-8 grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6 ">
+                                        {collections[0]
+                                            .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+                                            .map((r, i) => (
+                                                <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
+                                                    <a>
+                                                        <CollectionCard media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
+                                                    </a>
+                                                </Link>
+                                            ))}
+                                    </div>
+                                );
+                            }
+                        })()}
+                    </>
                 </div>
             </div>
         </div>

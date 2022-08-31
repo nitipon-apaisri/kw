@@ -24,15 +24,49 @@ const Collections = () => {
                 <div>
                     <h1 className="text-3xl font-bold tracking-wider">Marketplace</h1>
                     <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
-                    <div className="grid gap-8 grid-cols-3 mt-6 ">
-                        {collections.map((r, i) => (
-                            <Link href={`/gallery/marketplace/${r.slug}`} key={r._id}>
-                                <a>
-                                    <MarketplaceCard media={r.media.profile} cover={r.media.cover} title={r.title} />
-                                </a>
-                            </Link>
-                        ))}
-                    </div>
+                    <>
+                        {(() => {
+                            if (collections.length === 1) {
+                                return (
+                                    <div className="block w-96 mt-6">
+                                        {collections.map((r, i) => (
+                                            <Link href={`/gallery/marketplace/${r.slug}`} key={r._id}>
+                                                <a>
+                                                    <MarketplaceCard media={r.media.profile} cover={r.media.cover} title={r.title} />
+                                                </a>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                );
+                            }
+                            if (collections.length === 2) {
+                                return (
+                                    <div className=" grid gap-8 grid-cols-2 mt-6 ">
+                                        {collections.map((r, i) => (
+                                            <Link href={`/gallery/marketplace/${r.slug}`} key={r._id}>
+                                                <a>
+                                                    <MarketplaceCard media={r.media.profile} cover={r.media.cover} title={r.title} />
+                                                </a>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                );
+                            }
+                            if (collections.length >= 3) {
+                                return (
+                                    <div className=" grid gap-8 grid-cols-3 mt-6 ">
+                                        {collections.map((r, i) => (
+                                            <Link href={`/gallery/marketplace/${r.slug}`} key={r._id}>
+                                                <a>
+                                                    <MarketplaceCard media={r.media.profile} cover={r.media.cover} title={r.title} />
+                                                </a>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                );
+                            }
+                        })()}
+                    </>
                 </div>
             </div>
         </div>
