@@ -13,17 +13,17 @@ const Stats = () => {
             });
     }, []);
     return (
-        <div className="mt-10 h-60 bg-pink flex items-center justify-center rounded-3xl">
-            <div className="w-2/3 flex justify-evenly">
+        <div className="my-10 h-60 xs:h-auto  bg-pink flex items-center justify-center rounded-3xl">
+            <div className="w-2/3 md:w-full flex justify-evenly xs:block">
                 {kwStats.map((r, i) => (
-                    <div className="stats text-center text-white " key={r._id}>
-                        <h1 className="text-6xl font-semibold">{r.value}</h1>
-                        <p className="m-2 text-sm tracking-wide">{r.title}</p>
+                    <div className="stats text-center text-white xs:my-6" key={r._id}>
+                        <h1 className="text-6xl sm:text-4xl font-semibold">{r.value}</h1>
+                        <p className="m-2 text-sm sm:text-xs tracking-wide">{r.title}</p>
                     </div>
                 ))}
-                <div className="stats text-center text-white ">
-                    <h1 className="text-6xl font-semibold">{twitterFollower}</h1>
-                    <p className="m-2 text-sm tracking-wide">Twitter Followers</p>
+                <div className="stats text-center text-white xs:my-6">
+                    <h1 className="text-6xl sm:text-4xl font-semibold">{twitterFollower}</h1>
+                    <p className="m-2 text-sm sm:text-xs tracking-wide">Twitter Followers</p>
                 </div>
             </div>
         </div>

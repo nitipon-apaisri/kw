@@ -13,7 +13,7 @@ export default function Home() {
     useEffect(() => {
         setTimeout(() => {
             parasApi
-                .get("token?__limit=4&creator_id=kamwoo.near")
+                .get("token-series?__limit=4&creator_id=kamwoo.near")
                 .then((r) => setNewRelease((token) => [...token, r.data.data.results]))
                 .catch((err) => console.log(err));
         }, 1000);
@@ -31,12 +31,12 @@ export default function Home() {
                 <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
                 <div>
                     <h1 className="text-3xl font-sans font-bold tracking-wider">News</h1>
-                    <div className="grid gap-8 grid-cols-4 mt-6 ">
+                    <div className="grid gap-8  grid-cols-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6 ">
                         {news.map((r, i) => (
                             <div key={r._id}>
                                 <div>
                                     <Card media={r.media.image.link} />
-                                    <div className="px-6 ">
+                                    <div className="px-6 md:text-center">
                                         <h3 className="text-md font-semibold tracking-wider">{r.title}</h3>
                                         <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.description}</p>
                                         <p className="text-xs font-normal italic text-gray tracking-wide mt-2">{`Published: ${r.publish.getDate()}/${
@@ -53,7 +53,7 @@ export default function Home() {
                 <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
                 <div>
                     <h1 className="text-3xl font-sans font-bold tracking-wider">New Releases</h1>
-                    <div className="grid gap-8 grid-cols-4 mt-6 ">
+                    <div className="grid gap-8 grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-6 ">
                         {newRelease[0].map((r, i) => (
                             <div key={r._id}>
                                 <div>

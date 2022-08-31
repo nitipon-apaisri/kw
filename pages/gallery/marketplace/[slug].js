@@ -40,7 +40,7 @@ const Collection = () => {
                     <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
                     <div className="grid gap-8 grid-cols-3 mt-6 ">
                         {collections[0]
-                            .sort((a, b) => (a.createdAt < b.createdAt ? -1 : 1))
+                            .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
                             .map((r, i) => (
                                 <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
                                     <a>
