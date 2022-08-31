@@ -17,7 +17,7 @@ const Stats = () => {
             <div className="w-2/3 md:w-full flex justify-evenly xs:block">
                 {kwStats.map((r, i) => (
                     <div className="stats text-center text-white xs:my-6" key={r._id}>
-                        <h1 className="text-6xl sm:text-4xl font-semibold">{r.value}</h1>
+                        <h1 className="text-6xl sm:text-4xl font-semibold">{r.value > 100 ? "100+" : r.value}</h1>
                         <p className="m-2 text-sm sm:text-xs tracking-wide">{r.title}</p>
                     </div>
                 ))}

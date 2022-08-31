@@ -46,7 +46,7 @@ const Collection = () => {
             <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
             <div className="wrapper">
                 <InfiniteScroll dataLength={tokens.length} next={fetchMoreData} hasMore={hasMore} loader={<Loader />}>
-                    <div className="grid gap-8 grid-cols-4 mt-6">
+                    <div className="grid gap-8 grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
                         {tokens
                             .sort((a, b) => (a.token_series_id < b.token_series_id ? 1 : -1))
                             //filter to find unique token by token title ref: https://stackoverflow.com/a/56757215

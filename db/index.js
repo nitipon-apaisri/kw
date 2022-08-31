@@ -48,15 +48,15 @@ export const collections = [
             cover: "https://cdn.discordapp.com/attachments/988543164082167898/1012820047368028190/paras-cover.png",
         },
     },
-    {
-        _id: uuidv4(),
-        title: "OpenSea",
-        slug: "opensea",
-        media: {
-            profile: "https://cdn.discordapp.com/attachments/988543164082167898/1012814961879289888/op-profile.png",
-            cover: "https://cdn.discordapp.com/attachments/988543164082167898/1012813207183818802/op-cover.png",
-        },
-    },
+    // {
+    //     _id: uuidv4(),
+    //     title: "OpenSea",
+    //     slug: "opensea",
+    //     media: {
+    //         profile: "https://cdn.discordapp.com/attachments/988543164082167898/1012814961879289888/op-profile.png",
+    //         cover: "https://cdn.discordapp.com/attachments/988543164082167898/1012813207183818802/op-cover.png",
+    //     },
+    // },
 ];
 export const kwStats = [
     { _id: uuidv4(), title: "Marketplace", value: 3 },
