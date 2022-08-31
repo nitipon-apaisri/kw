@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { parasApi } from "../api";
 import Card from "../components/Card";
@@ -31,21 +32,22 @@ export default function Home() {
                 <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
                 <div>
                     <h1 className="text-3xl font-sans font-bold tracking-wider">News</h1>
-                    <div className="grid gap-8  grid-cols-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6 ">
-                        {news.map((r, i) => (
-                            <div key={r._id}>
-                                <div>
-                                    <Card media={r.media.image.link} />
-                                    <div className="px-6 md:text-center">
-                                        <h3 className="text-md font-semibold tracking-wider">{r.title}</h3>
-                                        <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.description}</p>
-                                        <p className="text-xs font-normal italic text-gray tracking-wide mt-2">{`Published: ${r.publish.getDate()}/${
-                                            r.publish.getMonth() + 1
-                                        }/${r.publish.getFullYear()}`}</p>
+
+                    <div className="grid gap-8 grid-cols-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6 ">
+                        {news
+                            .sort((a, b) => (a.publish > b.publish ? 1 : -1))
+                            .map((r, i) => (
+                                <div key={r._id}>
+                                    <div>
+                                        <Card media={r.media.image.link} />
+                                        <div className="px-6 text-center">
+                                            <h3 className="text-md font-semibold tracking-wider">{r.title}</h3>
+                                            <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.description}</p>
+                                            <p className="text-xs font-normal italic text-gray tracking-wide mt-2">Published: {r.publish}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
                     </div>
                 </div>
                 <hr className="w-1/2 mx-auto my-10" style={{ borderColor: "rgb(226 232 240)" }} />
@@ -57,11 +59,15 @@ export default function Home() {
                         {newRelease[0].map((r, i) => (
                             <div key={r._id}>
                                 <div>
-                                    <Card media={`https://paras-cdn.imgix.net/${r.metadata.media}`} />
-                                    <div className="px-6 text-center">
-                                        <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace("#1", "")}</h3>
-                                        <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.metadata.collection}</p>
-                                    </div>
+                                    <Link href={`https://paras.id/token/${r.contract_id}::${r.token_series_id}`} passHref>
+                                        <a target="_blank" rel="noopener noreferrer">
+                                            <Card media={`https://paras-cdn.imgix.net/${r.metadata.media}`} />
+                                            <div className="px-6 text-center">
+                                                <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace(`#${r.edition_id}`, "")}</h3>
+                                                <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.metadata.collection}</p>
+                                            </div>
+                                        </a>
+                                    </Link>
                                 </div>
                             </div>
                         ))}

@@ -27,11 +27,11 @@ const Layout = ({ children }) => {
                                 <a className={router.pathname.includes("gallery") ? "text-black hover:text-black transition" : "text-gray"}>Gallery</a>
                             </Link>
                         </li>
-                        <li className="mr-6 h-fit">
-                            <Link href="/events">
+                        {/* <li className="mr-6 h-fit">
+                            <Link href="/what-the">
                                 <a className={router.pathname.includes("what-the") ? "text-black hover:text-black transition" : "text-gray"}>What the...</a>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 {isToggle && (
@@ -51,20 +51,25 @@ const Layout = ({ children }) => {
                                     </a>
                                 </Link>
                             </li>
-                            <li className="mr-6 h-fit font-black">
-                                <Link href="/events">
+                            {/* <li className="mr-6 h-fit font-black">
+                                <Link href="/what-the">
                                     <a className={router.pathname.includes("what-the") ? "text-black hover:text-black transition" : "text-gray"} onClick={() => setToggle(false)}>
                                         What the...
                                     </a>
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 )}
             </nav>
             <main className="w-full max-w-7xl flex-grow m-auto px-10">{children}</main>
             <footer className=" p-4 text-center mt-10 bg-pink">
-                <h3 className="font-medium font-display text-white">© 2022</h3>
+                <h3 className="font-medium font-display text-white">
+                    © 2022 - Developed by
+                    <a href="https://twitter.com/nitipon_apaisri" target="_blank" rel="noopener noreferrer">
+                        👨‍💻
+                    </a>
+                </h3>
             </footer>
         </div>
     );
