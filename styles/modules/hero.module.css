@@ -1,0 +1,3 @@
+.hero_wrapper {
+    @apply w-full h-96 lg:h-80 md:h-60 bg-pink rounded-3xl bg-no-repeat bg-center bg-cover flex justify-center items-center shadow-xl;
+}
