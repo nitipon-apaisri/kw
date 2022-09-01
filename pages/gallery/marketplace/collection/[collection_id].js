@@ -15,12 +15,12 @@ const Collection = () => {
     useEffect(() => {
         setTimeout(() => {
             parasApi
-                .get(`token-series?__skip=0&__limit=8&collection_id=${collection_id}`)
-                .then((r) =>
+                .get(`token-series?__limit=8&collection_id=${collection_id}`)
+                .then((r) => {
                     r.data.data.results.forEach((token) => {
                         setTokens((uniqueToken) => [...uniqueToken, token]);
-                    })
-                )
+                    });
+                })
                 .catch((err) => console.log(err));
         }, 1000);
     }, [collection_id]);
@@ -52,7 +52,7 @@ const Collection = () => {
                             .sort((a, b) => (a.token_series_id < b.token_series_id ? 1 : -1))
                             //filter to find unique token by token title ref: https://stackoverflow.com/a/56757215
                             //v,i,a = value, index, array
-                            .filter((v, i, a) => a.findIndex((v2) => v2.metadata.title === v.metadata.title) === i)
+                            .filter((v, i, a) => a.findIndex((v2) => v2._id === v._id) === i)
                             .map((r, i) => (
                                 <div key={r._id}>
                                     <div>
