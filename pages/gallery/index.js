@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import Hero from "../../components/Hero";
 import { collections } from "../../db";
 import Loader from "../../components/Loader";
 import Link from "next/link";

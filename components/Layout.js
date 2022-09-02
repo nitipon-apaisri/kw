@@ -27,6 +27,11 @@ const Layout = ({ children }) => {
                                 <a className={router.pathname.includes("gallery") ? "text-black hover:text-black transition" : "text-gray"}>Gallery</a>
                             </Link>
                         </li>
+                        <li className="mr-6 h-fit">
+                            <Link href="/collectors">
+                                <a className={router.pathname.includes("collectors") ? "text-black hover:text-black transition" : "text-gray"}>Hodls</a>
+                            </Link>
+                        </li>
                         {/* <li className="mr-6 h-fit">
                             <Link href="/what-the">
                                 <a className={router.pathname.includes("what-the") ? "text-black hover:text-black transition" : "text-gray"}>What the...</a>

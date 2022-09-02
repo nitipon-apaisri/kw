@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { parasApi } from "../api";
-import Card from "../components/Card";
+import ImageCard from "../components/ImageCard";
 import Hero from "../components/Hero";
 import Loader from "../components/Loader";
 import Stats from "../components/Stats";
@@ -39,7 +39,7 @@ export default function Home() {
                             .map((r, i) => (
                                 <div key={r._id}>
                                     <div>
-                                        <Card media={r.media.image.link} />
+                                        <ImageCard media={r.media.image.link} />
                                         <div className="px-6 text-center">
                                             <h3 className="text-md font-semibold tracking-wider">{r.title}</h3>
                                             <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.description}</p>
@@ -61,7 +61,7 @@ export default function Home() {
                                 <div>
                                     <Link href={`https://paras.id/token/${r.contract_id}::${r.token_series_id}`} passHref>
                                         <a target="_blank" rel="noopener noreferrer">
-                                            <Card media={`https://paras-cdn.imgix.net/${r.metadata.media}`} />
+                                            <ImageCard media={`https://paras-cdn.imgix.net/${r.metadata.media}`} />
                                             <div className="px-6 text-center">
                                                 <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace(`#${r.edition_id}`, "")}</h3>
                                                 <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.metadata.collection}</p>

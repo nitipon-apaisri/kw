@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { parasApi } from "../../../../api";
 import Loader from "../../../../components/Loader";
-import Card from "../../../../components/Card";
+import ImageCard from "../../../../components/ImageCard";
 import Link from "next/link";
 
 const Collection = () => {
@@ -58,7 +58,7 @@ const Collection = () => {
                                     <div>
                                         <Link href={`https://paras.id/token/${r.contract_id}::${r.token_series_id}`} passHref>
                                             <a target="_blank" rel="noopener noreferrer">
-                                                <Card media={`https://paras-cdn.imgix.net/${r.metadata.media.replace("https://ipfs.fleek.co/ipfs/", "")}`} mimeType={r.metadata.mime_type} />
+                                                <ImageCard media={`https://paras-cdn.imgix.net/${r.metadata.media.replace("https://ipfs.fleek.co/ipfs/", "")}`} mimeType={r.metadata.mime_type} />
                                                 <div className="px-6 text-center">
                                                     <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace(`#${r.edition_id}`, "")}</h3>
                                                 </div>
