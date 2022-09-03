@@ -31,14 +31,11 @@ const HodlProvider = (props) => {
     const updateSkipToken = () => {
         skipToken =
             !skipToken &&
-            setInterval(
-                () => {
-                    setSkip((prevCount) => prevCount + 1);
-                },
-                skip <= 6 ? 200 : 100
-            );
-        if (skip >= 10) clearInterval(skipToken);
-        // if (skip >= collectors.length) clearInterval(skipToken);
+            setInterval(() => {
+                setSkip((prevCount) => prevCount + 1);
+            }, 10);
+        // if (skip >= 9) clearInterval(skipToken);
+        if (skip >= ownerIds.length) clearInterval(skipToken);
     };
     const getCollections = () => {
         parasApi
@@ -66,13 +63,13 @@ const HodlProvider = (props) => {
         parasApi
             .get(`profiles?accountId=${ownerIds[skip]}`)
             .then((account) => {
-                setCollectors((collector) => [...collector, account.data.data.results[0]]);
+                if (account.data.data.results.length !== 0) setCollectors((collector) => [...collector, account.data.data.results[0]]);
                 // console.log(account.data.data.results[0])
             })
             .catch((err) => console.log(err));
     };
 
-    return <HodlContext.Provider value={{ collectors, skip, collections }}>{props.children}</HodlContext.Provider>;
+    return <HodlContext.Provider value={{ collectors, skip, collections, ownerIds }}>{props.children}</HodlContext.Provider>;
 };
 
 export { HodlContext, HodlProvider };

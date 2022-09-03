@@ -1,11 +1,17 @@
 import Head from "next/head";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Loader from "../../components/Loader";
 import { HodlContext } from "../../store/hodl";
 import PrimaryCardStyle from "../../components/PrimaryCardStyle";
 const Collectors = () => {
-    const holdContext = useContext(HodlContext);
-    if (holdContext.collectors.length === 0) return <Loader />;
+    const hodlContext = useContext(HodlContext);
+    if (hodlContext.ownerIds.length !== hodlContext.skip)
+        return (
+            <div>
+                <Loader />
+            </div>
+        );
+
     return (
         <div className="collectors mt-10 mb-20">
             <Head>
@@ -15,21 +21,23 @@ const Collectors = () => {
             </Head>
             <div className="wrapper">
                 <h1 className="text-3xl font-bold tracking-wider">
-                    <span className="text-pink">KW</span> Collectors
+                    <span className="text-pink">KW</span> COLLECTORS
                 </h1>
                 <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
-                <div className="grid gap-8 grid-cols-3 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
-                    {holdContext.collectors
+                <div className="grid gap-8 grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
+                    {hodlContext.collectors
+                        .sort((a, b) => (a.accountId < b.accountId ? -1 : 1))
+                        //filter to find unique token by token title ref: https://stackoverflow.com/a/56757215
+                        //v,i,a = value, index, array
                         .filter((v, i, a) => a.findIndex((v2) => v2._id === v._id) === i)
                         .map((r, i) => (
                             <div key={r._id}>
                                 <PrimaryCardStyle
-                                    media={`https://paras-cdn.imgix.net/${r.imgUrl.replace("ipfs://", "")}`}
-                                    cover={r.coverUrl !== undefined ? r.coverUrl.replace("ipfs://", "") : r.imgUrl.replace("ipfs://", "")}
+                                    media={r.imgUrl !== undefined && `https://paras-cdn.imgix.net/${r.imgUrl.replace("ipfs://", "")}`}
+                                    cover={r.coverUrl !== undefined ? r.coverUrl.replace("ipfs://", "") : null}
                                     title={r.accountId}
                                 />
                             </div>
-                            // <p key={r._id}>{r.accountId}</p>
                         ))}
                 </div>
             </div>

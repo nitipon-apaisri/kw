@@ -50,7 +50,7 @@ const Collection = () => {
                     <div className="grid gap-8 grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
                         {tokens
                             .sort((a, b) => (a.token_series_id < b.token_series_id ? 1 : -1))
-                            //filter to find unique token by token title ref: https://stackoverflow.com/a/56757215
+                            //filter to find unique token by token series id ref: https://stackoverflow.com/a/56757215
                             //v,i,a = value, index, array
                             .filter((v, i, a) => a.findIndex((v2) => v2._id === v._id) === i)
                             .map((r, i) => (
