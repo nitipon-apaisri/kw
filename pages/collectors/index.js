@@ -1,47 +1,11 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import { parasApi } from "../../api";
+import { useContext, useEffect, useState } from "react";
 import Loader from "../../components/Loader";
-
+import { HodlContext } from "../../store/hodl";
+import PrimaryCardStyle from "../../components/PrimaryCardStyle";
 const Collectors = () => {
-    const [collectors, setCollectors] = useState([]);
-    const [collections, setCollections] = useState([]);
-    const [ownerIds, setOwnerIds] = useState([]);
-    const [displayCollectors, setDisplayCollectors] = useState([]);
-    useEffect(() => {
-        parasApi
-            .get(`collections?creator_id=kamwoo.near`)
-            .then((res) =>
-                res.data.data.results.forEach((collections) => {
-                    setCollections((collection) => [...collection, collections]);
-                })
-            )
-            .catch((err) => console.log(err));
-    }, []);
-    useEffect(() => {
-        collections.forEach((collection) => {
-            parasApi
-                .get(`collection-stats?collection_id=${collection.collection_id}`)
-                .then((res) =>
-                    res.data.data.results.owner_ids.forEach((ownerId) => {
-                        setOwnerIds((ids) => [...ids, ownerId]);
-                    })
-                )
-                .catch((err) => console.log(err));
-        });
-    }, [collections]);
-    // useEffect(() => {
-    // }, [ownerIds]);
-    // if (ownerIds.length !== 0) console.log(Array.from(new Set(ownerIds)).length);
-    // useEffect(() => {
-    //     if (collectors.length !== 0) {
-    //         for (let i = 0; i < 8; i++) {
-    //             console.log(collectors);
-    //             // setDisplayCollectors((owner) => [...owner, collectors[i]]);
-    //         }
-    //     }
-    // }, [collectors]);
-    if (ownerIds.length === 0) return <Loader />;
+    const holdContext = useContext(HodlContext);
+    if (holdContext.collectors.length === 0) return <Loader />;
     return (
         <div className="collectors mt-10 mb-20">
             <Head>
@@ -54,15 +18,19 @@ const Collectors = () => {
                     <span className="text-pink">KW</span> Collectors
                 </h1>
                 <hr className=" my-5" style={{ borderColor: "rgb(226 232 240)" }} />
-                <div className="grid gap-8 grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
-                    {/* {displayCollectors
-                        // .filter((v, i, a) => a.findIndex((v2) => v2._id === v._id) === i)
+                <div className="grid gap-8 grid-cols-3 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
+                    {holdContext.collectors
+                        .filter((v, i, a) => a.findIndex((v2) => v2._id === v._id) === i)
                         .map((r, i) => (
                             <div key={r._id}>
-                                <p>{r}</p>
+                                <PrimaryCardStyle
+                                    media={`https://paras-cdn.imgix.net/${r.imgUrl.replace("ipfs://", "")}`}
+                                    cover={r.coverUrl !== undefined ? r.coverUrl.replace("ipfs://", "") : r.imgUrl.replace("ipfs://", "")}
+                                    title={r.accountId}
+                                />
                             </div>
-                        ))} */}
-                    <p>{ownerIds.length}</p>
+                            // <p key={r._id}>{r.accountId}</p>
+                        ))}
                 </div>
             </div>
         </div>
