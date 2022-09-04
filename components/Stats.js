@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { twitterApi } from "../api";
 import { kwStats } from "../db";
+import { HodlContext } from "../store/hodl";
 
 const Stats = () => {
     const [twitterFollower, setTwitterFollower] = useState(0);
+    const hodlContext = useContext(HodlContext);
     useEffect(() => {
         twitterApi
             .get("KAMWOO4?user.fields=public_metrics")
@@ -21,6 +23,10 @@ const Stats = () => {
                         <p className="m-2 text-sm sm:text-xs tracking-wide">{r.title}</p>
                     </div>
                 ))}
+                <div className="stats text-center text-white xs:my-6">
+                    <h1 className="text-6xl sm:text-4xl font-semibold">{hodlContext.ownerIds.length}</h1>
+                    <p className="m-2 text-sm sm:text-xs tracking-wide">Collectors</p>
+                </div>
                 <div className="stats text-center text-white xs:my-6">
                     <h1 className="text-6xl sm:text-4xl font-semibold">{twitterFollower}</h1>
                     <p className="m-2 text-sm sm:text-xs tracking-wide">Twitter Followers</p>

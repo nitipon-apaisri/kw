@@ -32,6 +32,10 @@ h6,
 p {
     font-family: "Poppins", sans-serif;
 }
+input::placeholder {
+    font-family: "Poppins", sans-serif;
+    @apply text-xs tracking-wide;
+}
 .card-zoom {
     @apply relative flex items-center justify-center my-3 mx-auto transition-all duration-300 overflow-hidden shadow-xl shadow-light_gray aspect-square rounded-3xl;
 }
