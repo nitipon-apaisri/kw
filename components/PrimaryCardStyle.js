@@ -9,7 +9,7 @@ const CollectionCard = ({ media, cover, title }) => {
                     </div>
                 </div>
 
-                <div className="max-w-[240px]  mx-auto text-center mt-14">
+                <div className="max-w-[240px]  mx-auto text-center mt-14 sm:max-w-[120px]">
                     <h3 className=" truncate font-bold tracking-wider">{title}</h3>
                 </div>
             </div>

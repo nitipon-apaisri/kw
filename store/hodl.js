@@ -9,6 +9,8 @@ const HodlProvider = (props) => {
     const [collections, setCollections] = useState([]);
     const [ownerIds, setOwnerIds] = useState([]);
     const [skip, setSkip] = useState(0);
+    const [searchValue, setSearchValue] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
     useEffect(() => {
         if (collections.length === 0) {
             getCollections();
@@ -69,7 +71,7 @@ const HodlProvider = (props) => {
             .catch((err) => console.log(err));
     };
 
-    return <HodlContext.Provider value={{ collectors, skip, collections, ownerIds }}>{props.children}</HodlContext.Provider>;
+    return <HodlContext.Provider value={{ collectors, skip, collections, ownerIds, searchValue, searchResults, setSearchResults, setSearchValue }}>{props.children}</HodlContext.Provider>;
 };
 
 export { HodlContext, HodlProvider };
