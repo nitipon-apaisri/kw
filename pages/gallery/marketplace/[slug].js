@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { parasApi } from "../../../api";
-import CollectionCard from "../../../components/CollectionCard";
+import PrimaryCardStyle from "../../../components/PrimaryCardStyle";
 import Loader from "../../../components/Loader";
 
 const Collection = () => {
@@ -48,7 +48,7 @@ const Collection = () => {
                                             .map((r, i) => (
                                                 <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
                                                     <a>
-                                                        <CollectionCard media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
+                                                        <PrimaryCardStyle media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
                                                     </a>
                                                 </Link>
                                             ))}
@@ -63,7 +63,7 @@ const Collection = () => {
                                             .map((r, i) => (
                                                 <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
                                                     <a>
-                                                        <CollectionCard media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
+                                                        <PrimaryCardStyle media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
                                                     </a>
                                                 </Link>
                                             ))}
@@ -78,7 +78,7 @@ const Collection = () => {
                                             .map((r, i) => (
                                                 <Link href={`/gallery/marketplace/collection/${r.collection_id}`} key={r._id}>
                                                     <a>
-                                                        <CollectionCard media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
+                                                        <PrimaryCardStyle media={`https://paras-cdn.imgix.net/${r.media}`} cover={r.cover === undefined ? null : r.cover} title={r.collection} />
                                                     </a>
                                                 </Link>
                                             ))}

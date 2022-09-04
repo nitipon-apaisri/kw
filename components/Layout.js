@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import logo from "../assets/images/kw-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
             <nav>
                 <div className="flex max-w-7xl m-auto py-8 px-10 xs:justify-between xs:items-center">
                     <div className="w-10 h-10 bg-center bg-cover rounded-lg" style={{ backgroundImage: `url(${logo.src})` }}></div>
-                    <FontAwesomeIcon icon={isToggle ? faXmark : faBars} size="2x" onClick={toggleMenu} className={toggleMenu ? "hidden xs:block" : "hidden"} />
+                    <FontAwesomeIcon icon={isToggle ? faXmark : faBars} onClick={toggleMenu} className={toggleMenu ? "hidden max-w-8 max-h-8 xs:block" : "hidden "} />
                     <ul className={"flex items-center ml-20 xs:hidden"}>
                         <li className="mr-6 h-fit">
                             <Link href="/">
@@ -25,6 +25,11 @@ const Layout = ({ children }) => {
                         <li className="mr-6 h-fit">
                             <Link href="/gallery">
                                 <a className={router.pathname.includes("gallery") ? "text-black hover:text-black transition" : "text-gray"}>Gallery</a>
+                            </Link>
+                        </li>
+                        <li className="mr-6 h-fit">
+                            <Link href="/collectors">
+                                <a className={router.pathname.includes("collectors") ? "text-black hover:text-black transition" : "text-gray"}>Collectors</a>
                             </Link>
                         </li>
                         {/* <li className="mr-6 h-fit">

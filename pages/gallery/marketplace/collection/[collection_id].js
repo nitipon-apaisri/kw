@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { parasApi } from "../../../../api";
 import Loader from "../../../../components/Loader";
-import Card from "../../../../components/Card";
+import ImageCard from "../../../../components/ImageCard";
 import Link from "next/link";
 
 const Collection = () => {
@@ -50,7 +50,7 @@ const Collection = () => {
                     <div className="grid gap-8 grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
                         {tokens
                             .sort((a, b) => (a.token_series_id < b.token_series_id ? 1 : -1))
-                            //filter to find unique token by token title ref: https://stackoverflow.com/a/56757215
+                            //filter to find unique token by token series id ref: https://stackoverflow.com/a/56757215
                             //v,i,a = value, index, array
                             .filter((v, i, a) => a.findIndex((v2) => v2._id === v._id) === i)
                             .map((r, i) => (
@@ -58,7 +58,7 @@ const Collection = () => {
                                     <div>
                                         <Link href={`https://paras.id/token/${r.contract_id}::${r.token_series_id}`} passHref>
                                             <a target="_blank" rel="noopener noreferrer">
-                                                <Card media={`https://paras-cdn.imgix.net/${r.metadata.media.replace("https://ipfs.fleek.co/ipfs/", "")}`} mimeType={r.metadata.mime_type} />
+                                                <ImageCard media={`https://paras-cdn.imgix.net/${r.metadata.media.replace("https://ipfs.fleek.co/ipfs/", "")}`} mimeType={r.metadata.mime_type} />
                                                 <div className="px-6 text-center">
                                                     <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace(`#${r.edition_id}`, "")}</h3>
                                                 </div>
