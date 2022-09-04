@@ -24,7 +24,7 @@ const Stats = () => {
                     </div>
                 ))}
                 <div className="stats text-center text-white xs:my-6">
-                    <h1 className="text-6xl sm:text-4xl font-semibold">{hodlContext.ownerIds.length}</h1>
+                    <h1 className="text-6xl sm:text-4xl font-semibold">{Array.from(new Set(hodlContext.ownerIds)).length}</h1>
                     <p className="m-2 text-sm sm:text-xs tracking-wide">Collectors</p>
                 </div>
                 <div className="stats text-center text-white xs:my-6">
