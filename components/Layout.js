@@ -4,6 +4,7 @@ import { useState } from "react";
 import logo from "../assets/images/kw-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import Meta from "./Meta";
 const Layout = ({ children }) => {
     const router = useRouter();
     const [isToggle, setToggle] = useState(false);
@@ -12,6 +13,7 @@ const Layout = ({ children }) => {
     };
     return (
         <div className="flex flex-col min-h-screen">
+            <Meta />
             <nav>
                 <div className="flex max-w-7xl m-auto py-8 px-10 xs:justify-between xs:items-center">
                     <div className="w-10 h-10 bg-center bg-cover rounded-lg" style={{ backgroundImage: `url(${logo.src})` }}></div>
