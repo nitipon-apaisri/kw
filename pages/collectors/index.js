@@ -4,6 +4,7 @@ import Loader from "../../components/Loader";
 import { HodlContext } from "../../store/hodl";
 import PrimaryCardStyle from "../../components/PrimaryCardStyle";
 import Meta from "../../components/Meta";
+import Link from "next/link";
 const Collectors = () => {
     const hodlContext = useContext(HodlContext);
     const searchCollector = (value) => {
@@ -45,11 +46,15 @@ const Collectors = () => {
                                   .filter((v, i, a) => a.findIndex((v2) => v2._id === v._id) === i)
                                   .map((r, i) => (
                                       <div key={r._id}>
-                                          <PrimaryCardStyle
-                                              media={r.imgUrl !== undefined && `https://paras-cdn.imgix.net/${r.imgUrl.replace("ipfs://", "")}`}
-                                              cover={r.coverUrl !== undefined ? r.coverUrl.replace("ipfs://", "") : null}
-                                              title={r.accountId}
-                                          />
+                                          <Link href={`/${r.accountId}`}>
+                                              <a>
+                                                  <PrimaryCardStyle
+                                                      media={r.imgUrl !== undefined && `https://paras-cdn.imgix.net/${r.imgUrl.replace("ipfs://", "")}`}
+                                                      cover={r.coverUrl !== undefined ? r.coverUrl.replace("ipfs://", "") : null}
+                                                      title={r.accountId}
+                                                  />
+                                              </a>
+                                          </Link>
                                       </div>
                                   ))
                             : hodlContext.searchResults
