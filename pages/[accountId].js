@@ -5,6 +5,7 @@ import Loader from "../components/Loader";
 import { HodlContext } from "../store/hodl";
 import { months } from "../store/months";
 import ImageCard from "../components/ImageCard";
+import Link from "next/link";
 const Collector = () => {
     const holdContext = useContext(HodlContext);
     const router = useRouter();
@@ -83,11 +84,15 @@ const Collector = () => {
                 <div className="grid gap-8 grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-6 ">
                     {ownTokens.map((r, i) => (
                         <div key={r._id}>
-                            <ImageCard media={`https://paras-cdn.imgix.net/${r.metadata.media}`} mimeType={r.metadata.mime_type} />
-                            <div className="px-6 text-center">
-                                <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace(`#${r.edition_id}`, "")}</h3>
-                                <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.metadata.collection}</p>
-                            </div>
+                            <Link href={`https://paras.id/token/${r.contract_id}::${r.token_series_id}`} passHref>
+                                <a target="_blank" rel="noopener noreferrer">
+                                    <ImageCard media={`https://paras-cdn.imgix.net/${r.metadata.media}`} />
+                                    <div className="px-6 text-center">
+                                        <h3 className="text-md font-semibold tracking-wider">{r.metadata.title.replace(`#${r.edition_id}`, "")}</h3>
+                                        <p className="text-xs font-medium text-gray tracking-wide mt-1">{r.metadata.collection}</p>
+                                    </div>
+                                </a>
+                            </Link>
                         </div>
                     ))}
                 </div>
