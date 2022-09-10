@@ -37,7 +37,7 @@ const Collectors = () => {
                 {hodlContext.ownerIds.length !== hodlContext.skip ? (
                     <Loader />
                 ) : (
-                    <div className="grid gap-8 grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
+                    <div className="grid gap-8 grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6">
                         {!hodlContext.searchValue
                             ? hodlContext.collectors
                                   .sort((a, b) => (a.accountId < b.accountId ? -1 : 1))
@@ -64,11 +64,15 @@ const Collectors = () => {
                                   .filter((v, i, a) => a.findIndex((v2) => v2._id === v._id) === i)
                                   .map((r, i) => (
                                       <div key={r._id}>
-                                          <PrimaryCardStyle
-                                              media={r.imgUrl !== undefined && `https://paras-cdn.imgix.net/${r.imgUrl.replace("ipfs://", "")}`}
-                                              cover={r.coverUrl !== undefined ? r.coverUrl.replace("ipfs://", "") : null}
-                                              title={r.accountId}
-                                          />
+                                          <Link href={`/${r.accountId}`}>
+                                              <a>
+                                                  <PrimaryCardStyle
+                                                      media={r.imgUrl !== undefined && `https://paras-cdn.imgix.net/${r.imgUrl.replace("ipfs://", "")}`}
+                                                      cover={r.coverUrl !== undefined ? r.coverUrl.replace("ipfs://", "") : null}
+                                                      title={r.accountId}
+                                                  />
+                                              </a>
+                                          </Link>
                                       </div>
                                   ))}
                     </div>
