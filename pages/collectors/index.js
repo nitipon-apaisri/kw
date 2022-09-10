@@ -37,7 +37,7 @@ const Collectors = () => {
                 {hodlContext.ownerIds.length !== hodlContext.skip ? (
                     <Loader />
                 ) : (
-                    <div className="grid gap-8 grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6 px-4">
+                    <div className="grid gap-8 grid-cols-3 md:grid-cols-2 xs:grid-cols-1 mt-6">
                         {!hodlContext.searchValue
                             ? hodlContext.collectors
                                   .sort((a, b) => (a.accountId < b.accountId ? -1 : 1))
