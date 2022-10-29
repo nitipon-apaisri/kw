@@ -8,5 +8,5 @@ export const twitterApi = axios.create({
 });
 
 export const parasApi = axios.create({
-    baseURL: `https://api-v2-mainnet.paras.id/`,
+    baseURL: `${process.env.NEXT_PUBLIC_PROXY_SERVER}https://api-v2-mainnet.paras.id/`,
 });
